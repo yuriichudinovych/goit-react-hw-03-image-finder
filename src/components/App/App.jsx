@@ -82,7 +82,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { items, isLoading, largeImageURL } = this.state;
+    const { items, isLoading, largeImageURL, totalItems } = this.state;
     return (
       <StyledApp>
         {this.state.modalOpen && (
@@ -96,7 +96,7 @@ export default class App extends Component {
             <ImageGallery items={items} onClick={this.openModal} />
           </>
         )}
-        {!isLoading && items.length > 0 && items.length < 500 && (
+        {!isLoading && items.length > 0 && items.length < totalItems && (
           <Button handleLoadMore={this.loadMore} />
         )}
         {isLoading && <Loader />}
